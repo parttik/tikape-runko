@@ -17,6 +17,10 @@ public class Kenneli {
     private Integer id;
     private String nimi;
     
+    public Kenneli(String nimi) {
+        this.nimi=nimi;
+    }
+    
     public Kenneli(Integer id, String nimi) {
         this.id=id;
         this.nimi=nimi;

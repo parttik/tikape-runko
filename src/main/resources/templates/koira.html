@@ -2,14 +2,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
     <head>
-        <title> Koiran sivun otsikko</title>
+        <title th:text="${koira.nimi}"> Koiran sivun otsikko</title>
         <meta charset="utf-8" />
     </head>
 
     <body>
-        <h1>Hei <span th:text="${koira.nimi}">koira</span>!</h1>
+        <h1><span th:text="${kenneli.getNimi()}">kenneli</span> <span th:text="${koira.nimi}">koira</span></h1>
 
         <p>Olet saapunut koiran <span th:text="${koira.nimi}">koira</span> tietosivulle.</p>
-        <p>Sit tähän koiran syntymäaika ja omistaja sekä koiranäyttelysijoitukset</p>
+        <p>Rotu: <span th:text="${koira.getRotu()}"></span></p>
+        <p>Syntymäaika: <span th:text="${koira.getSyntymaaika()}"></span></p>
+        <p>Omistaja: <span th:text="${koira.getOmistaja()}"></span></p>
+        <p>Näyttelyt:</p>
+        <ol>
+            <li th:each="nayttely: ${nayttelyt}">
+                <span th:text="${nayttely}">tiedot</span>
+                
+            </li>
+        </ol>
+        <p>Lisää näyttely</p>
+        <form th:action="${'/kenneli/' + kenneli.getId() + '/' + koira.getId()}" method='post'> 
+             <input placeholder='YYYY-MM-DD' type='text' name='paivamaara'/>
+             <input placeholder='Paikkakunta' type='text' name='sijainti'/>
+             <input placeholder='Sijoitus' type='number' name='sijoitus'/>
+            <button type='submit'>Lisää näyttely</button>
+        </form>
     </body>
 </html>

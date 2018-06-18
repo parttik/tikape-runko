@@ -5,7 +5,13 @@
  */
 package tikape.runko.domain;
 
+import java.sql.Connection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -15,8 +21,13 @@ public class Koira {
     private Integer id;
     private String nimi;
     private String omistaja;
-    private Date syntymaaika;
+    private String syntymaaika;
     private Integer kenneli_id;
+    private String rotu;
+    
+    public Koira(String nimi) {
+        this.nimi = nimi;
+    }
 
     public Koira(Integer id, String nimi) {
         this.id = id;
@@ -47,11 +58,11 @@ public class Koira {
         this.omistaja=nimi;
     }
     
-    public Date getSyntymaaika() {
+    public String getSyntymaaika() {
         return this.syntymaaika;
     }
     
-    public void setSyntymaaika(Date dob) {
+    public void setSyntymaaika(String dob) {
         this.syntymaaika=dob;
     }
     public int getKenneli_id() {
@@ -61,6 +72,14 @@ public class Koira {
     public void setKenneli_id(int id) {
         this.kenneli_id=id;
     }
+    public String getRotu() {
+        return this.rotu;
+    }
+    
+    public void setRotu(String rotu) {
+        this.rotu=rotu;
+    }
+    
 
 }
 

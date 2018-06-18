@@ -72,5 +72,34 @@ public class KenneliDao implements Dao<Kenneli, Integer> {
     public void delete(Integer key) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
+    @Override
+    public Kenneli save(Kenneli obj) throws SQLException {
+        Connection conn = database.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("INSERT INTO Kenneli"
+                + " (nimi)"
+                + " VALUES (?)");
+        stmt.setString(1, obj.getNimi());
+
+        stmt.executeUpdate();
+        ResultSet avaimet=stmt.getGeneratedKeys();
+        avaimet.next();
+        stmt.close();
+        
+        stmt = conn.prepareStatement("SELECT * FROM Kenneli"
+                + " WHERE id = ?");
+        stmt.setInt(1, avaimet.getInt(1));
+        
+
+        ResultSet rs = stmt.executeQuery();
+        rs.next(); 
+
+        Kenneli k= new Kenneli(rs.getInt("id"), rs.getString("nimi"));
+
+        stmt.close();
+        rs.close();
+
+        conn.close();
+
+        return k;}
 }

@@ -7,13 +7,21 @@
     </head>
 
     <body>
-        <h1>Tässä listattuna kennelin koirat</h1>
+        <h1>Tässä listattuna koirat kennelistä <span th:text="${kenneli.getNimi()}">kennelin nimi</span></h1>
 
         <ol>
             <li th:each="koira: ${koirat}">
-                <a th:href="${'/kenneli/' + kenneli.id +'/' + koira.id}"><span th:text="${koira.nimi}">koiran nimi</span></a>
-                <p>Sit jokaisesta koiran nimestä pitäisi voida painaa että pääsee koiran omalle sivulle</p>
+                <a th:href="${'/kenneli/' + kenneli.getId() +'/' + koira.getId()}"><span th:text="${koira.getNimi()}">koiran nimi</span></a>
+                
             </li>
         </ol>
+        <h3>Lisää koira</h3>
+        <form th:action="${'/kenneli/' + kenneli.getId()}" method='post'> 
+             <input placeholder='Nimi' type='text' name='nimi'/> <br/>
+             <input placeholder='Rotu' type='text' name='rotu'/> <br/>
+             <input placeholder='Omistaja' type='text' name='omistaja'/> <br/>
+             <input placeholder='YYYY-MM-DD' type='text' name='syntymaaika'/> <br/>
+            <button type='submit'>Lisää koira</button>
+        </form>
     </body>
 </html>

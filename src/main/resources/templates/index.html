@@ -14,11 +14,10 @@
                 <a th:href="${'/kenneli/' + kenneli.getId()}"><span th:text="${kenneli.getNimi()}">kennelin nimi</span></a>
             </li>
         </ol>
-        <p>sitten pitäisi tulla joku haku ja lisää kenneli ehkä</p>
-        
-        <p>näitä ei välttämättä tartte</p>
-        <p>Ja <span th:text="${viesti}">jotain?</span></p>
-
-        <p><a href="/kenneli">Tästä koiralistaukseen.</a></p>
+        <p>Lisää</p>
+        <form action='/' method='post'> 
+             <input placeholder='Nimi' type='text' name='nimi'/>
+            <button type='submit'>Lisää kenneli</button>
+        </form>
     </body>
 </html>
