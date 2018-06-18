@@ -11,7 +11,8 @@
 
         <ol>
             <li th:each="koira: ${koirat}">
-                <span th:text="${koira.nimi}">koiran nimi</span> <a th:href="${'/kenneli/' + koira.id}">linkki</a>
+                <a th:href="${'/kenneli/' + kenneli.id +'/' + koira.id}"><span th:text="${koira.nimi}">koiran nimi</span></a>
+                <p>Sit jokaisesta koiran nimestä pitäisi voida painaa että pääsee koiran omalle sivulle</p>
             </li>
         </ol>
     </body>

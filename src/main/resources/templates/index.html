@@ -2,15 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
     <head>
-        <title>Otsikko</title>
+        <title>Koiratietokanta</title>
         <meta charset="utf-8" />
     </head>
 
     <body>
-        <h1>Heippa vaan!</h1>
+        <h1>Koiratietokanta</h1>
+        <h3>Kennelit:</h3>
+        <ol>
+            <li th:each="kenneli: ${kennelit}">
+                <a th:href="${'/kenneli/' + kenneli.getId()}"><span th:text="${kenneli.getNimi()}">kennelin nimi</span></a>
+            </li>
+        </ol>
+        <p>sitten pitäisi tulla joku haku ja lisää kenneli ehkä</p>
+        
+        <p>näitä ei välttämättä tartte</p>
+        <p>Ja <span th:text="${viesti}">jotain?</span></p>
 
-        <p>Ja .. <span th:text="${viesti}">jotain?</span></p>
-
-        <p><a href="/opiskelijat">Tästä opiskelijalistaukseen.</a></p>
+        <p><a href="/kenneli">Tästä koiralistaukseen.</a></p>
     </body>
 </html>
