@@ -38,6 +38,6 @@ FOREIGN KEY (koiranayttely_id) REFERENCES Koiranayttely(id),
 FOREIGN KEY (koira_id) REFERENCES Koira(id)
 );
 
-(Jos minulla olisi ollut aikaa, olisin lisännyt myös siis delete-ominaisuuden ja mahdollisuuden hakea eri tietoja tietokannasta. Valitettavasti en kuitenkaan kerinnyt toteuttaa näitä ominaisuuksia.)
+(Jos minulla olisi ollut aikaa, olisin lisännyt myös siis delete-ominaisuuden ja mahdollisuuden hakea eri tietoja tietokannasta. Myös kennelin lisäämiseen olisin laittanut mahdollisuuden lisätä kasvattaja. Valitettavasti en kuitenkaan kerinnyt toteuttaa näitä ominaisuuksia ajanpuutteen takia kun yksin tämän tein.)
 
 
