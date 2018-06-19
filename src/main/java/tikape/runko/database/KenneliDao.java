@@ -25,7 +25,7 @@ public class KenneliDao implements Dao<Kenneli, Integer> {
     public Kenneli findOne(Integer key) throws SQLException {
         Connection connection = database.getConnection();
         PreparedStatement stmt = connection.prepareStatement("SELECT * FROM Kenneli WHERE id = ?");
-        stmt.setObject(1, key);
+        stmt.setInt(1, key);
 
         ResultSet rs = stmt.executeQuery();
         boolean hasOne = rs.next();

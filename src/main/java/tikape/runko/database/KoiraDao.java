@@ -24,7 +24,7 @@ public class KoiraDao implements Dao<Koira, Integer> {
     public Koira findOne(Integer key) throws SQLException {
         Connection connection = database.getConnection();
         PreparedStatement stmt = connection.prepareStatement("SELECT * FROM Koira WHERE id = ?");
-        stmt.setObject(1, key);
+        stmt.setInt(1, key);
 
         ResultSet rs = stmt.executeQuery();
         boolean hasOne = rs.next();
@@ -78,7 +78,7 @@ public class KoiraDao implements Dao<Koira, Integer> {
         List<String>sijoitukset=new ArrayList<>();
         Connection connection = database.getConnection();
         PreparedStatement stmt = connection.prepareStatement("SELECT * FROM Nayttelykoira, Koiranayttely WHERE Nayttelykoira.koira_id = ? AND Nayttelykoira.koiranayttely_id=Koiranayttely.id");
-        stmt.setObject(1, key);
+        stmt.setInt(1, key);
 
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
